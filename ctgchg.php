@@ -30,7 +30,6 @@
 
 
 				echo "<center>";
-				//echo "<strong><center><font color=\"#f44336\" size = \"5\">用户信息</font></center></strong>";
 
 				echo "<td width=\"70%\">";
 				echo "<table cellpadding=\"10\" cellspacing=\"0\" width=\"100%\" align=\"center\" bgcolor=\"#ffffff\" class=\"ss\" >";
@@ -56,7 +55,6 @@
 
 				echo "<tr>";
 				echo "<td bgcolor=\"#2196F3\"><center><font color=\"#ffffff\" size = \"4\">标签</font></center></td>";
-				//echo "<td bgcolor=\"#2196F3\"><center><font color=\"#ffffff\" size = \"3\">备注</font></center></td>";
 				echo "<td bgcolor=\"#2196F3\"><center><font color=\"#ffffff\" size = \"4\">操作</font></center></td>";
 				echo "</tr>";
 

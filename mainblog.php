@@ -70,7 +70,8 @@
 		 			echo "<center><font size=\"3\" color=\"#000000\">".$rows2['date']."</font></center>";
 		 			echo "<center><a href=mainblog.php?sort=".$rows2['sort']."><font size=\"3\" color=\"#2196F3\">标签:".$rows2['sort']."</font></a>|";
 		 			echo "<a href=singblog.php?id=".$rows2['id']."><font size=\"3\" color=\"#2196F3\">评论[".$rows2['tbcount']."]</font></a>|";
-		 			echo "<a href=singblog.php?id=".$rows2['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows2['views']."]</font></a></center>";
+		 			echo "<a href=singblog.php?id=".$rows2['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows2['views']."]</font></a>|";
+		 			echo "<font size=\"3\" color=\"#2196F3\">赞[".$rows2['upvote']."]</font></center>";
 		 			echo "<center><font color=\"#000000\" size=\"4px\" >&nbsp&nbsp".$rows2['content']."</font></center>";
 		 			echo "<center><a href=singblog.php?id=".$rows2['id']."><font size=\"3\" color=\"#2196F3\">阅读全文>></font></a></center>";
 
@@ -104,7 +105,8 @@
  			echo "<center><font size=\"3\" color=\"#000000\">".$rows['date']."</font></center>";
  			echo "<center><a href=mainblog.php?sort=".$rows['sort']."><font size=\"3\" color=\"#2196F3\">标签:".$rows['sort']."</font></a>|";
  			echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">评论[".$rows['tbcount']."]</font></a>|";
- 			echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows['views']."]</font></a></center>";
+ 			echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows['views']."]</font></a>|";
+ 			echo "<font size=\"3\" color=\"#2196F3\">赞[".$rows['upvote']."]</font></center>";
  			echo "<center><font color=\"#000000\" size=\"4px\" >&nbsp&nbsp".$rows['content']."</font></center>";
  			echo "<center><a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">阅读全文>></font></a></center>";
 
@@ -143,7 +145,8 @@
 		 			echo "<center><font size=\"3\" color=\"#000000\">".$rows['date']."</font></center>";
 		 			echo "<center><a href=mainblog.php?sort=".$rows['sort']."><font size=\"3\" color=\"#2196F3\">标签:".$rows['sort']."</font></a>|";
 		 			echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">评论[".$rows['tbcount']."]</font></a>|";
-		 			echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows['views']."]</font></a></center>";
+		 			echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows['views']."]</font></a>|";
+		 			echo "<font size=\"3\" color=\"#2196F3\">赞[".$rows['upvote']."]</font></center>";
 		 			echo "<center><font color=\"#000000\" size=\"4px\" >&nbsp&nbsp".$rows['content']."</font></center>";
 		 			echo "<center><a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">阅读全文>></font></a></center>";
 

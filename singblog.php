@@ -33,11 +33,13 @@
 
 		echo "<td width=\"40%\">";
 		echo "<table cellpadding=\"15\" cellspacing=\"0\" width=\"55%\" align=\"center\" bgcolor=\"#ffffff\" class=\"ss\" >";
+		echo "<form action=singblog.php method=post>";
 
 		require "conf.php";
 		$link=mysql_connect($host,$user,$pass);
 		mysql_select_db($db_name,$link);
 		mysql_query("SET NAMES utf8");
+
 		$sql="select * from $table_blog where id='$_GET[id]' and p_id='0' order by id desc";
 		$result=mysql_query($sql,$link) or die(mysql_error());
 		$rows=mysql_fetch_array($result);
@@ -59,7 +61,7 @@
 		echo "<a href=mainblog.php?sort=".$rows['sort']."><font size=\"3\" color=\"#2196F3\">标签:".$rows['sort']."</font></a>|";
 		echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">评论[".$rows['tbcount']."]</font></a>|";
 		echo "<a href=singblog.php?id=".$rows['id']."><font size=\"3\" color=\"#2196F3\">浏览[".$rows['views']."]</font></a>|";
-		//echo "<font size=\"3\" color=\"#2196F3\">赞[".$rows['views']."]</font><br>";
+		echo "<font size=\"3\" color=\"#2196F3\">赞[".$rows['upvote']."]</font><input type=radio name=action value=upvote><br>";
 		echo "</center><br>";
 		echo "<font color=\"#000000\" size=\"4px\" >&nbsp&nbsp".$rows['content']."</font><br>";
 
@@ -104,7 +106,7 @@
 		echo "<p>";
 
 		echo "<table cellpadding=\"10\" cellspacing=\"0\" width=\"47%\" align=\"center\" bgcolor=\"#ffffff\" class=\"ss2\" >";
-		echo "<form action=singblog.php method=post>";
+		
 
 		echo "<input type=hidden name=id value=".$rows['id'].">";
 		echo "<input type=hidden name=sort value=".$rows['sort'].">";
@@ -136,6 +138,7 @@
 		$sort=$_POST['sort'];
 		$content=$_POST['content'];
 		$date=$date=date("n/d/Y");
+		$upvote=$_POST['upvote'];
 		if(!$_COOKIE["username"])
 		{
 			$username="anonymous";
@@ -148,10 +151,20 @@
 		$link=mysql_connect($host,$user,$pass);
 		mysql_select_db($db_name,$link);
 		mysql_query("SET NAMES utf8");
-		$sql="insert into $table_blog(p_id,author,title,content,sort,date)values('$id','$username','$title','$content','$sort','$date')";
-		mysql_query($sql,$link);
-		$sql="update $table_blog set tbcount=tbcount+1 where id='$id'";
-		mysql_query($sql,$link);
+		if($content)
+		{
+			$sql="insert into $table_blog(p_id,author,title,content,sort,date)values('$id','$username','$title','$content','$sort','$date')";
+			mysql_query($sql,$link);
+			$sql="update $table_blog set tbcount=tbcount+1 where id='$id'";
+			mysql_query($sql,$link);
+		}
+		if($_POST['action']=="upvote")
+		{
+			$sql3="update $table_blog set upvote=upvote+1 where id='$id'";
+			mysql_query($sql3,$link);
+		}
+
+
 
 		echo "<meta http-equiv=\"refresh\" content=\"2; url=singblog.php?id=".$id."\">";
 		echo "</head>";

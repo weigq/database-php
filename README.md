@@ -2,7 +2,7 @@
 #### 结构图：
 <div align="center">
 
-![1](./1.png)
+![1](./test.png)
 
 </div>
 
